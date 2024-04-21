@@ -115,7 +115,8 @@ global:
 ##-alertmanager-##
 alertmanager:
   enabled: true
-  annotations: {}
+  annotations: 
+    tailscale.com/expose: "true"
   apiVersion: v2
   serviceAccount:
     create: true
@@ -191,7 +192,8 @@ alertmanager:
       prefix: "alertmanager"
 
   service:
-    annotations: {}
+    annotations: 
+      tailscale.com/expose: "true"
     labels: {}
     clusterIP: ""
     port: 9093
@@ -311,7 +313,8 @@ grafana:
       labelValue: "1"
       # Allow discovery in all namespaces for dashboards
       searchNamespace: ALL
-      annotations: {}
+      annotations: 
+        tailscale.com/expose: "true"
       multicluster:
         global:
           enabled: false
@@ -838,7 +841,8 @@ prometheusOperator:
 ##-Prometheus-##
 prometheus:
   enabled: true
-  annotations: {}
+  annotations: 
+    tailscale.com/expose: "true"
   networkPolicy:
     enabled: failure-domain.beta.kubernetes.io/zone
     flavor: kubernetes
@@ -857,7 +861,8 @@ prometheus:
     enabled: false
 
   service:
-    annotations: {}
+    annotations: 
+      tailscale.com/expose: "true"
     labels: {}
     clusterIP: ""
     port: 9090
